@@ -39,7 +39,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
   window.location.href = mailtoLink;
 });
 
-//FORMULARIO POSTULACION
+// FORMULARIO POSTULACION
 const formPostulacion = document.getElementById("formPostulacion");
 
 if (formPostulacion) {
@@ -47,11 +47,10 @@ if (formPostulacion) {
     e.preventDefault();
 
     const data = new FormData(formPostulacion);
-
     let cuerpo = "";
 
-    for (let [key, value] of data.entries()) {
-      if (value.trim() !== "") {
+    for (const [key, value] of data.entries()) {
+      if (typeof value === "string" && value.trim() !== "") {
         cuerpo += `• ${key.toUpperCase()}: ${value}\n`;
       }
     }
@@ -66,11 +65,70 @@ if (formPostulacion) {
   });
 }
 
-//CREAR PDF
+// CREAR PDF
 const btnPDF = document.getElementById("btn-pdf");
+const PDF_FILENAME = "cv-postulacion.pdf";
+const FALLBACK_AVATAR_BASE64 =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMDAnIGhlaWdodD0nMzAwJz48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPScjRTVFN0VCJy8+PHRleHQgeD0nNTAlJyB5PSc1MCUnIGRvbWluYW50LWJhc2VsaW5lPSdtaWRkbGUnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZvbnQtc2l6ZT0nMzInIGZvbnQtZmFtaWx5PSdBcmlhbCwgc2Fucy1zZXJpZicgZmlsbD0nIzZCNzI4MCc+U2luIGZvdG88L3RleHQ+PC9zdmc+";
 
-btnPDF.addEventListener("click", () => {
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function waitForDomReady() {
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve) => {
+    document.addEventListener("DOMContentLoaded", resolve, { once: true });
+  });
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("No se pudo leer la imagen seleccionada."));
+
+    reader.readAsDataURL(file);
+  });
+}
+
+function imageLoaded(img) {
+  if (!img) return Promise.resolve();
+
+  if (img.complete && img.naturalWidth > 0) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve) => {
+    const onDone = () => {
+      img.removeEventListener("load", onDone);
+      img.removeEventListener("error", onDone);
+      resolve();
+    };
+
+    img.addEventListener("load", onDone, { once: true });
+    img.addEventListener("error", onDone, { once: true });
+  });
+}
+
+async function waitForImages(container, fallbackSrc) {
+  const images = Array.from(container.querySelectorAll("img"));
+
+  for (const img of images) {
+    img.setAttribute("crossorigin", "anonymous");
+
+    await imageLoaded(img);
+
+    if (!img.naturalWidth || !img.naturalHeight) {
+      img.src = fallbackSrc;
+      await imageLoaded(img);
+    }
+  }
+}
+
+function setCvData() {
   const nombre = document.querySelector('input[name="nombre"]')?.value || "";
   const email = document.querySelector('input[name="email"]')?.value || "";
   const telefono = document.querySelector('input[name="telefono"]')?.value || "";
@@ -80,42 +138,102 @@ btnPDF.addEventListener("click", () => {
   document.getElementById("cvEmail").innerText = email;
   document.getElementById("cvTelefono").innerText = telefono;
   document.getElementById("cvPerfil").innerText = perfil;
+}
 
-  const img = document.getElementById("cvFoto");
-  const file = document.getElementById("foto").files[0];
+function ensureRenderable(element) {
+  const computed = window.getComputedStyle(element);
+  const previous = {
+    display: element.style.display,
+    visibility: element.style.visibility,
+    position: element.style.position,
+    left: element.style.left,
+    top: element.style.top,
+  };
 
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      img.src = e.target.result;
-      generarPDF();
-    };
-
-    reader.readAsDataURL(file);
-  } else {
-    img.src = "https://via.placeholder.com/150";
-    generarPDF();
+  if (computed.display === "none") {
+    element.style.display = "block";
   }
-});
 
-function generarPDF() {
+  element.style.visibility = "visible";
+  element.style.position = "fixed";
+  element.style.left = "-9999px";
+  element.style.top = "0";
+
+  return () => {
+    element.style.display = previous.display;
+    element.style.visibility = previous.visibility;
+    element.style.position = previous.position;
+    element.style.left = previous.left;
+    element.style.top = previous.top;
+  };
+}
+
+async function resolvePhotoBase64() {
+  const fileInput = document.getElementById("foto");
+  const selectedFile = fileInput?.files?.[0];
+
+  if (!selectedFile) return FALLBACK_AVATAR_BASE64;
+
+  try {
+    return await fileToBase64(selectedFile);
+  } catch (error) {
+    console.warn(error);
+    return FALLBACK_AVATAR_BASE64;
+  }
+}
+
+async function generarPDF() {
   const element = document.getElementById("cv");
 
-  element.classList.remove("hidden");
+  if (!element) {
+    console.error("No se encontró el contenedor #cv para generar el PDF.");
+    return;
+  }
 
-  setTimeout(() => {
-    html2pdf()
+  await waitForDomReady();
+
+  setCvData();
+
+  const cvFoto = document.getElementById("cvFoto");
+  cvFoto.src = await resolvePhotoBase64();
+
+  const restoreStyles = ensureRenderable(element);
+
+  try {
+    await waitForImages(element, FALLBACK_AVATAR_BASE64);
+
+    // Delay corto para asegurar render estable antes de html2canvas.
+    await wait(350);
+
+    await html2pdf()
       .set({
         margin: 0.5,
-        filename: "cv-postulacion.pdf",
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+        filename: PDF_FILENAME,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          allowTaint: false,
+          backgroundColor: "#ffffff",
+          imageTimeout: 15000,
+          logging: false,
+        },
+        jsPDF: {
+          unit: "in",
+          format: "a4",
+          orientation: "portrait",
+        },
       })
       .from(element)
-      .save()
-      .then(() => {
-        element.classList.add("hidden");
-      });
-  }, 400);
+      .save();
+  } catch (error) {
+    console.error("Error generando el PDF:", error);
+    alert("Hubo un problema al generar el PDF. Revisá las imágenes e intentá nuevamente.");
+  } finally {
+    restoreStyles();
+  }
+}
+
+if (btnPDF) {
+  btnPDF.addEventListener("click", generarPDF);
 }
