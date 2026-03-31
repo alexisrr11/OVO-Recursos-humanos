@@ -6,6 +6,8 @@ const btnPdf = document.getElementById("btn-pdf");
 const btnPostulacion = document.getElementById("btn-postulacion");
 const inputFoto = document.getElementById("foto");
 const previewFoto = document.getElementById("previewFoto");
+const btnMas = document.getElementById("btn-mas-texto");
+const masTexto = document.getElementById("mas-texto");
 
 const EMAILJS_CONFIG = {
   publicKey: "HlfnK-aglYbt-S_i-",
@@ -15,6 +17,16 @@ const EMAILJS_CONFIG = {
 
 document.getElementById("menuBtn").addEventListener("click", () => {
   document.getElementById("menu-nav").classList.toggle("hidden");
+});
+
+btnMas.addEventListener("click", () => {
+  masTexto.classList.toggle("hidden");
+
+  if (masTexto.classList.contains("hidden")) {
+    btnMas.textContent = "Leer más";
+  } else {
+    btnMas.textContent = "Leer menos";
+  }
 });
 
 openBtn.addEventListener("click", () => {
