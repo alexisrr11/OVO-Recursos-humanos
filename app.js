@@ -8,9 +8,9 @@ const inputFoto = document.getElementById("foto");
 const previewFoto = document.getElementById("previewFoto");
 
 const EMAILJS_CONFIG = {
-  publicKey: "TU_PUBLIC_KEY",
-  serviceId: "TU_SERVICE_ID",
-  templateId: "TU_TEMPLATE_ID",
+  publicKey: "HlfnK-aglYbt-S_i-",
+  serviceId: "service_wx55jqg",
+  templateId: "template_vay4i7g",
 };
 
 document.getElementById("menuBtn").addEventListener("click", () => {
