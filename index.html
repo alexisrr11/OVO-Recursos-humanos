@@ -25,6 +25,22 @@
       background-size: calc(3*var(--s)) calc(3*var(--s));
       scroll-behavior: smooth;
     }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-bounce-slow {
+      animation: float 2s ease-in-out infinite;
+    }
   </style>
   <!-- Basic Icons -->
   <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
@@ -58,7 +74,7 @@
 
     <!-- Nav -->
     <nav id="menu-nav"
-      class="hidden flex flex-col absolute top-28 left-0 p-6 bg-gray-900/95 backdrop-blur-md w-full gap-6 text-gray-300">
+      class="hidden flex flex-col absolute top-22 left-0 p-6 bg-gray-900/95 backdrop-blur-md w-full gap-6 text-gray-300 md:top-28">
       <a href="#inicio" class="hover:text-white transition">Inicio</a>
       <a href="#soluciones" class="hover:text-white transition">Soluciones</a>
       <a href="#crear-cv" class="hover:text-white transition">Nosotros</a>
@@ -67,7 +83,7 @@
 
   </header>
 
-  <section class="bg-gray-900/50 py-4 px-6 text-gray-200 md:py-10">
+  <section class="bg-gray-900/50 my-10 px-6 py-1 text-gray-200 md:py-10">
     <div class="flex flex-col-reverse justify-center gap-5 text-center md:flex-row gap-10 items-center md:text-left">
 
       <a class="fixed right-6 bottom-5 text-3xl text-blue-500 z-30" href="#contacto">
@@ -123,6 +139,11 @@
           class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition">
           Crear CV
         </a>
+
+        <button id="scrollDownBtn" class="absolute left-1/2 -translate-x-1/2 bottom-6 text-white text-4xl">
+          <i class='bx bx-chevrons-down animate-bounce-slow'></i>
+        </button>
+
       </div>
 
       <img src="./images/WhatsApp Image 2026-03-29 at 22.09.12.png" alt="Equipo de trabajo"

@@ -45,6 +45,14 @@ modal.addEventListener("click", (e) => {
   }
 });
 
+// Al hacer click, scrollea hasta el final del viewport
+document.getElementById("scrollDownBtn").addEventListener("click", () => {
+    window.scrollBy({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
+});
+
 //Formulario email
 document.getElementById("contactForm").addEventListener("submit", (e) => {
 // Formulario email simple de contacto
