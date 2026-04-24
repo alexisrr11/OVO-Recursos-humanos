@@ -407,3 +407,111 @@ formPostulacion.addEventListener("submit", async (e) => {
     setLoading(btnPostulacion, false);
   }
 });
+
+//Funcion modales para los botones iniciles
+
+function setupModal({ modalId, openId, closeId }) {
+  const modal = document.getElementById(modalId);
+  const openBtn = document.getElementById(openId);
+  const closeBtn = document.getElementById(closeId);
+
+  if (!modal || !openBtn || !closeBtn) return;
+
+  // Funciones reutilizables
+  const openModal = () => {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden"; // bloquea scroll
+  };
+
+  const closeModal = () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  };
+
+  // Abrir modal
+  openBtn.addEventListener("click", openModal);
+
+  // Cerrar con botón
+  closeBtn.addEventListener("click", closeModal);
+
+  // Cerrar haciendo click afuera
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+}
+
+// Modal perfil
+setupModal({
+  modalId: "modalPerfil",
+  openId: "btnEmpezarPerfil",
+  closeId: "closeModalPerfil",
+});
+
+// Modal empresa
+setupModal({
+  modalId: "modalEmpresa",
+  openId: "openEmpresa",
+  closeId: "closeModalEmpresa",
+});
+
+// Lógica para cambiar entre bloques
+const btnEmpresa = document.getElementById("btnEmpresa");
+const btnCandidato = document.getElementById("btnCandidato");
+
+const bloqueEmpresa = document.getElementById("bloqueEmpresa");
+const bloqueCandidato = document.getElementById("bloqueCandidato");
+
+function activarTab(tipo) {
+  if (tipo === "empresa") {
+    // Mostrar empresa
+    bloqueEmpresa.classList.remove("hidden");
+    bloqueEmpresa.classList.add("opacity-100");
+
+    // Ocultar candidato
+    bloqueCandidato.classList.add("hidden");
+
+    // Botones estilos
+    btnEmpresa.classList.add("bg-gray-200", "text-gray-900");
+    btnEmpresa.classList.remove("text-white");
+
+    btnCandidato.classList.remove("bg-gray-200", "text-gray-900");
+    btnCandidato.classList.add("text-white");
+
+  } else {
+    // Mostrar candidato
+    bloqueCandidato.classList.remove("hidden");
+    bloqueCandidato.classList.add("opacity-100");
+
+    // Ocultar empresa
+    bloqueEmpresa.classList.add("hidden");
+
+    // Botones estilos
+    btnCandidato.classList.add("bg-gray-200", "text-gray-900");
+    btnCandidato.classList.remove("text-white");
+
+    btnEmpresa.classList.remove("bg-gray-200", "text-gray-900");
+    btnEmpresa.classList.add("text-white");
+  }
+}
+
+// Eventos
+btnEmpresa.addEventListener("click", () => activarTab("empresa"));
+btnCandidato.addEventListener("click", () => activarTab("candidato"));
+
+function ocultarConAnimacion(el) {
+  el.classList.add("opacity-0");
+  setTimeout(() => {
+    el.classList.add("hidden");
+  }, 300);
+}

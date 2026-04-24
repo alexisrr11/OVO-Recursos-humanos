@@ -2,504 +2,592 @@
 <html lang="es">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8" />
-  <title>OVO RRHH</title>
-  <link rel="icon" href="./images/favico.ico">
-  <style>
-    html {
-      --s: 50px;
-      /* control the size*/
-      --c1: #011a35;
-      --c2: #011028;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>OVO RRHH</title>
+    <link rel="icon" href="./images/favico.ico">
+    <style>
+        html {
+            --s: 50px;
+            /* control the size*/
+            --c1: #011a35;
+            --c2: #011028;
 
-      --c: #0000 75%, var(--c1) 0;
-      --g1: conic-gradient(at calc(200%/3) 10%, var(--c));
-      --g2: conic-gradient(at 10% calc(200%/3), var(--c));
-      background:
-        var(--g1), var(--g2),
-        var(--g1) var(--s) var(--s),
-        var(--g2) var(--s) var(--s),
-        var(--g1) calc(2*var(--s)) calc(2*var(--s)),
-        var(--g2) calc(2*var(--s)) calc(2*var(--s)) var(--c2);
-      background-size: calc(3*var(--s)) calc(3*var(--s));
-      scroll-behavior: smooth;
-    }
+            --c: #0000 75%, var(--c1) 0;
+            --g1: conic-gradient(at calc(200%/3) 10%, var(--c));
+            --g2: conic-gradient(at 10% calc(200%/3), var(--c));
+            background:
+                var(--g1), var(--g2),
+                var(--g1) var(--s) var(--s),
+                var(--g2) var(--s) var(--s),
+                var(--g1) calc(2*var(--s)) calc(2*var(--s)),
+                var(--g2) calc(2*var(--s)) calc(2*var(--s)) var(--c2);
+            background-size: calc(3*var(--s)) calc(3*var(--s));
+            scroll-behavior: smooth;
+        }
 
-    @keyframes float {
+        @keyframes float {
 
-      0%,
-      100% {
-        transform: translateY(0);
-      }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-      50% {
-        transform: translateY(-10px);
-      }
-    }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
 
-    .animate-bounce-slow {
-      animation: float 2s ease-in-out infinite;
-    }
-  </style>
-  <!-- Basic Icons -->
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
-  <!-- Filled Icons -->
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
-  <!-- Brand Icons -->
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+        .animate-bounce-slow {
+            animation: float 2s ease-in-out infinite;
+        }
+    </style>
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <!-- Filled Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <!-- Brand Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body id="inicio" class="text-white">
 
-  <header class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-      <a href="./index.html" class="flex gap-3 items-center">
-        <!-- Logo -->
-        <img src="./images/WhatsApp Image 2026-03-29 at 22.30.06.jpeg" class="w-14 h-auto rounded-full md:w-20 h-20 "
-          alt="">
-        <div>
-          <h1 class="font-bold text-2xl">OVO</h1>
-          <span class="text-gray-400">Gestión Humana</span>
-        </div>
-      </a>
+            <a href="./index.html" class="flex gap-3 items-center">
+                <!-- Logo -->
+                <img src="./images/WhatsApp Image 2026-03-29 at 22.30.06.jpeg"
+                    class="w-14 h-auto rounded-full md:w-20 h-20 " alt="">
+                <div>
+                    <h1 class="font-bold text-2xl">OVO</h1>
+                    <span class="text-gray-400">Gestión Humana</span>
+                </div>
+            </a>
 
-      <!-- Button menu -->
-      <button id="menuBtn" class="text-2xl text-gray-300">
-        ☰
-      </button>
-    </div>
-
-    <!-- Nav -->
-    <nav id="menu-nav"
-      class="hidden flex flex-col absolute top-22 left-0 p-6 bg-gray-900/95 backdrop-blur-md w-full gap-6 text-gray-300 md:top-28">
-      <a href="#inicio" class="hover:text-white transition">Inicio</a>
-      <a href="#soluciones" class="hover:text-white transition">Soluciones</a>
-      <a href="#crear-cv" class="hover:text-white transition">Nosotros</a>
-      <a href="#contacto" class="hover:text-white transition">Contacto</a>
-    </nav>
-
-  </header>
-
-  <section class="bg-gray-900/50 my-8 px-6 py-1 text-gray-200 md:py-10">
-    <div class="flex flex-col-reverse justify-center gap-5 text-center md:flex-row gap-10 items-center md:text-left">
-
-      <a class="fixed right-6 bottom-5 text-3xl text-blue-500 z-30" href="#contacto">
-        <i class="bxl bx-gmail border-2 border-blue-600 p-2 rounded-full bg-yellow-50/20"></i>
-      </a>
-
-      <!-- Texto -->
-      <div class="md:w-1/2">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-          Sobre mí
-        </h2>
-
-        <p class="text-gray-400 mb-2">
-          Somos una consultora enfocada en el área de Recursos Humanos, dedicada a acompañar a personas en su desarrollo
-          laboral. Brindamos un servicio de asesoramiento en armado de CV.
-        </p>
-
-        <p id="mas-texto" class="hidden text-gray-400 mb-6">
-          Preparación para entrevistas y optimización de perfiles laborales. Nuestro enfoque se basa en la cercanía,
-          la escucha y el compromiso. Entendemos que cada persona tiene un potencial único para desarrollarse
-          profesionalmente.
-          Nuestro objetivo es ayudar a las personas a potenciar su perfil laboral y acompañarlas en el proceso de
-          búsqueda de empleo, generando oportunidades reales de crecimiento.
-        </p>
-
-        <button id="btn-mas-texto" class="text-blue-400">Leer más</button>
-
-        <!-- Highlights -->
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
-            <p class="text-xl font-bold text-white">+20</p>
-            <p class="text-sm text-gray-400">CV realizados</p>
-          </div>
-
-          <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
-            <p class="text-xl font-bold text-white">+10</p>
-            <p class="text-sm text-gray-400">Personas asesoradas</p>
-          </div>
-
-          <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
-            <p class="text-xl font-bold text-white">100%</p>
-            <p class="text-sm text-gray-400">Compromiso</p>
-          </div>
-
-          <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
-            <p class="text-xl font-bold text-white">100%</p>
-            <p class="text-sm text-gray-400">Atención personalizada</p>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <a href="#crear-cv"
-          class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition">
-          Crear CV
-        </a>
-
-        <button id="scrollDownBtn" class="absolute left-4 bottom-1 text-white text-4xl">
-          <i class='bx bx-chevrons-down animate-bounce-slow'></i>
-        </button>
-
-      </div>
-
-      <img src="./images/WhatsApp Image 2026-03-29 at 22.09.12.png" alt="Equipo de trabajo"
-        class="rounded-full shadow-lg object-contain h-36 w-36 border-2 border-blue-400 md:h-[55vh] md:w-auto" />
-    </div>
-  </section>
-
-  <main id="soluciones" class="bg-gray-900/50 pt-10 px-6">
-    <div class="max-w-7xl mx-auto">
-
-      <!-- Título -->
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold pb-14">
-          Nuestros servicios
-        </h2>
-
-        <!-- Bloque principal -->
-        <div class="grid md:grid-cols-2 gap-10 mb-16">
-
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow">
-            <h2 class="text-2xl font-bold mb-3 text-white">
-              Armado de CV Profesional
-            </h2>
-            <p class="text-gray-400">
-              Creamos CV claros, organizados y adaptados al perfil de cada persona, destacando sus habilidades y
-              experiencia para aumentar sus oportunidades laborales.
-            </p>
-          </div>
-
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow">
-            <h2 class="text-2xl font-bold mb-3 text-white">
-              Preparación para entrevistas
-            </h2>
-            <p class="text-gray-400">
-              Te ayudamos a prepararte para entrevistas laborales, brindándote herramientas y respuestas clave para que
-              puedas desenvolverte con seguridad.
-            </p>
-          </div>
-
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow">
-            <h2 class="text-2xl font-bold mb-3 text-white">
-              Optimización de perfil laboral
-            </h2>
-            <p class="text-gray-400">
-              Analizamos tu perfil y te guiamos para mejorar tu presentación profesional, tanto en CV como en
-              plataformas como LinkedIn.
-            </p>
-          </div>
-
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow">
-            <h2 class="text-2xl font-bold mb-3 text-white">
-              Asesoramiento Personalizado
-            </h2>
-            <p class="text-gray-400">
-              Acompañamiento individual para ayudarte a entender el mercado laboral y mejorar tus oportunidades de
-              conseguir trabajo.
-            </p>
-          </div>
-
-        </div>
-
-        <div id="crear-cv" class="h-32"></div>
-        <div class="bg-gray-900/70 pb-8">
-          <h3 class="text-3xl font-semibold pb-8">Impulsa tu perfil laboral</h3>
-          <p class=" max-w-3xl mx-auto">
-            Te ayudamos a mejorar o armar tu CV, prepararte para entrevistas y aumentar tus oportunidades de conseguir
-            trabajo.
-            Además, podés descargar tu CV en formato PDF de manera gratuita, listo para postularte a diferentes empleos.
-          </p>
-          <div class="pt-6">
-            <button id="openModal"
-              class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition">
-              Empezar ahora
+            <!-- Button menu -->
+            <button id="menuBtn" class="text-2xl text-gray-300">
+                ☰
             </button>
-          </div>
         </div>
-      </div>
 
+        <!-- Nav -->
+        <nav id="menu-nav"
+            class="hidden flex flex-col absolute top-22 left-0 p-6 bg-gray-900/95 backdrop-blur-md w-full gap-6 text-gray-300 md:top-26">
+            <a href="#inicio" class="hover:text-white transition">Inicio</a>
+            <a href="#candidatos" class="hover:text-white transition">Servicios</a>
+            <a href="#contacto" class="hover:text-white transition">Contacto</a>
+        </nav>
 
-    </div>
-  </main>
+    </header>
 
-  <section class="py-16 px-6 text-gray-200">
-    <div class="max-w-7xl mx-auto">
+    <section class="bg-gray-900/50 my-8 px-6 py-1 text-gray-200 md:py-10">
+        <div
+            class="flex flex-col-reverse justify-center gap-5 text-center md:flex-row gap-10 items-center md:text-left">
 
-      <!-- Diferenciales -->
-      <div>
-        <h2 class="text-3xl font-bold text-center mb-10 text-white">
-          Elegí el servicio que mejor se adapte a vos
-        </h2>
+            <a class="fixed right-6 bottom-5 text-3xl text-blue-500 z-30" href="#contacto">
+                <i class="bxl bx-gmail border-2 border-blue-600 p-2 rounded-full bg-yellow-50/20"></i>
+            </a>
 
-        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Texto -->
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Sobre mí
+                </h2>
 
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow hover:shadow-lg transition hover:scale-105 text-center">
-            <h3 class="text-lg font-semibold mb-2 text-white">
-              CV + consejos
-            </h3>
-            <p class="text-gray-400 text-sm">
-              Creamos tu currículum de forma profesional, te buscamos trabajos adaptados a lo que buscás y te damos
-              tips.
-              Guía laboral de regalo. $12.000
-            </p>
-          </div>
+                <p class="text-gray-400 mt-4">
+                    En OVO Recursos Humanos conectamos talento con oportunidades.
+                    Acompañamos a personas en su desarrollo profesional y ayudamos a empresas
+                    a encontrar perfiles alineados a sus necesidades, generando vínculos que
+                    impulsan el crecimiento de ambos.
+                </p>
 
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow hover:shadow-lg transition hover:scale-105 text-center">
-            <h3 class="text-lg font-semibold mb-2 text-white">
-              CV + asesoramiento
-            </h3>
-            <p class="text-gray-400 text-sm">
-              Creamos tu currículum de forma profesional, te buscamos trabajos adaptados a lo que buscás y te ayudamos
-              para entrevistas. Guía laboral de regalo. $20.000
-            </p>
-          </div>
+                <p id="mas-texto" class="hidden text-gray-400 mb-6">
+                    Trabajamos sobre la preparación para entrevistas y optimización de perfiles laborales. Nuestro
+                    enfoque se basa en la
+                    cercanía,
+                    la escucha y el compromiso. Entendemos que cada persona tiene un potencial único para desarrollarse
+                    profesionalmente.
+                    Nuestro objetivo es ayudar a las personas a potenciar su perfil laboral y acompañarlas en el proceso
+                    de
+                    búsqueda de empleo, generando oportunidades reales de crecimiento.
+                </p>
 
-          <div class="bg-gray-900/70 p-6 rounded-xl shadow hover:shadow-lg transition hover:scale-105 text-center">
-            <h3 class="text-lg font-semibold mb-2 text-white">
-              Servicio Premium
-            </h3>
-            <p id="contacto" class="text-gray-400 text-sm">
-              Armado de currículum, preparación para entrevistas, optimización de LinkedIn y seguimiento personalizado.
-              Guía laboral de regalo. $30.000
-            </p>
-          </div>
+                <button id="btn-mas-texto" class="text-blue-400">Leer más</button>
 
-        </div>
-      </div>
+                <!-- Highlights -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
+                        <p class="text-xl font-bold text-white">+30</p>
+                        <p class="text-sm text-gray-400">CV realizados</p>
+                    </div>
 
-    </div>
-  </section>
+                    <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
+                        <p class="text-xl font-bold text-white">+10</p>
+                        <p class="text-sm text-gray-400">Personas asesoradas</p>
+                    </div>
 
-  <section class="bg-gray-900/90 p-8 max-w-4xl mx-auto rounded-lg text-gray-900">
-    <h3 class="text-2xl text-center font-semibold py-8 text-gray-50">Enviame un Email</h3>
-    <form id="contactForm" class="flex flex-col gap-4 max-w-2xl mx-auto">
-      <input id="nombre" placeholder="Nombre" class="input p-2 rounded-lg " />
-      <input id="email" placeholder="Email" class="input p-2 rounded-lg" />
-      <textarea id="mensaje" placeholder="Mensaje" class="input p-2 rounded-lg"></textarea>
+                    <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
+                        <p class="text-xl font-bold text-white">100%</p>
+                        <p class="text-sm text-gray-400">Compromiso</p>
+                    </div>
 
-      <button type="submit" class="bg-blue-500 text-white text-center p-2 w-24 m-auto rounded-lg">
-        Enviar
-      </button>
-    </form>
-  </section>
+                    <div class="bg-gray-900/70 backdrop-blur-md p-4 rounded-lg text-center">
+                        <p class="text-xl font-bold text-white">100%</p>
+                        <p class="text-sm text-gray-400">Atención personalizada</p>
+                    </div>
+                </div>
 
-  <!--        -------------------------  MODAL -----------------------------------        -->
+                <!-- CTA -->
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a id="btnEmpezarPerfil" href="#crear-cv"
+                        class="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition">
+                        <i class="bx bx-user text-lg"></i>
+                        <span>Soy Candidato</span> 
+                    </a>
 
-  <div id="modal"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm text-gray-900 hidden items-center justify-center z-50 p-4">
+                    <a id="openEmpresa" href="#empresas"
+                        class="flex items-center gap-2 bg-green-700/70 hover:bg-green-800/70 text-white px-6 py-3 rounded-lg font-semibold transition">
+                        <i class="bx bx-enterprise text-lg"></i>
+                        <span>Soy Empleador</span> 
+                    </a>
+                </div>
 
-    <!-- Contenedor -->
-    <div class="bg-gray-900 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
+                <button id="scrollDownBtn" class="absolute left-4 bottom-1 text-white text-4xl">
+                    <i class='bx bx-chevrons-down animate-bounce-slow'></i>
+                </button>
 
-      <!-- Botón cerrar -->
-      <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
-        ✕
-      </button>
-
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">
-        Postulación laboral
-      </h2>
-
-      <form id="formPostulacion" class="space-y-10">
-
-        <!-- 1. DATOS PERSONALES -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">👤 Datos personales</h3>
-
-          <div class="flex flex-col items-center mb-6">
-
-            <!-- Preview -->
-            <div class="w-32 h-32 rounded-lg overflow-hidden border border-gray-600 mb-3">
-              <img id="previewFoto" src="https://via.placeholder.com/150" class="w-full h-full object-cover" />
             </div>
 
-            <!-- Input -->
-            <input type="file" id="foto" accept="image/*" class="text-sm text-gray-300" />
-
-            <p class="text-xs text-gray-400 mt-1">Foto 4x4 (opcional)</p>
-
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-4">
-            <input name="nombre" placeholder="Nombre completo" class="input p-2 rounded-lg" />
-            <input name="edad" placeholder="Edad (opcional)" class="input p-2 rounded-lg" />
-            <input name="telefono" placeholder="Teléfono" class="input p-2 rounded-lg" />
-            <input name="email" placeholder="Email" class="input p-2 rounded-lg" />
-            <input name="ciudad" placeholder="Ciudad / Zona" class="input p-2 rounded-lg" />
-
-            <select name="viajar" class="input grid md:grid-cols-2 gap-4">
-              <option class="p-2 rounded-lg">¿Disponibilidad para viajar?</option>
-              <option>Sí</option>
-              <option>No</option>
-            </select>
-          </div>
+            <img src="./images/WhatsApp Image 2026-03-29 at 22.09.12.png" alt="Equipo de trabajo"
+                class="rounded-full shadow-lg object-contain h-36 w-36 border-2 border-blue-400 md:h-[55vh] md:w-auto" />
         </div>
+    </section>
 
-        <!-- 2. OBJETIVO -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">🎯 Objetivo laboral</h3>
+    <main id="candidatos" class="bg-gray-900/50 pt-10 px-6">
+        <div class="max-w-7xl mx-auto">
 
-          <div class="grid md:grid-cols-2 gap-4">
-            <input name="area" placeholder="Área en la que querés trabajar" class="input p-2 rounded-lg" />
+            <!-- Título -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold pb-8">
+                    Nuestros servicios
+                </h2>
 
-            <select name="motivacion" class="input grid-cols-2 gap-4">
-              <option class="p-2 rounded-lg">Tipo de trabajo</option>
-              <option class="p-2 rounded-lg">Full time</option>
-              <option class="p-2 rounded-lg">Part time</option>
-              <option class="p-2 rounded-lg">Remoto</option>
-            </select>
+                <!--
+                    <p class="text-gray-200 max-w-3xl mx-auto mb-10">
+                        Sabemos que el éxito de una empresa está en su gente. En OVO Recursos Humanos
+                        trabajamos para identificar, evaluar y seleccionar perfiles que impulsen el crecimiento
+                        de tu organización.
+                    </p>
+                -->
 
-            <textarea name="interes" placeholder="¿Por qué te interesa ese trabajo?"
-              class="input p-2 rounded-lg"></textarea>
-          </div>
-        </div>
+                <div class="flex justify-center gap-4 p-1 px-4 rounded-lg w-max mx-auto mb-6 bg-gray-800 text-white">
+                    <button id="btnEmpresa"
+                        class="tab-btn active bg-gray-200 py-1 px-4 rounded-lg text-gray-900 font-semibold">
+                        Empleador
+                    </button>
+                    <button id="btnCandidato" class="tab-btn py-1 px-4 rounded-lg">
+                        Candidato
+                    </button>
+                </div>
 
-        <!-- 3. EXPERIENCIA -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">💼 Experiencia laboral</h3>
+                <div class="text-center mb-12">
 
-          <div class="grid md:grid-cols-2 gap-4">
-            <input name="empresa" placeholder="Empresa" class="input p-2 rounded-lg" />
-            <input name="puestos" placeholder="Puesto" class="input p-2 rounded-lg" />
-            <input name="fechas" placeholder="Fecha desde - hasta" class="input p-2 rounded-lg" />
-            <textarea name="tareas" placeholder="Tareas realizadas" class="input p-2 rounded-lg"></textarea>
+                    <!-- Bloque principal Empresarial -->
+                    <div id="bloqueEmpresa" class="grid md:grid-cols-2 gap-10 mb-16 transition-all duration-500 ease-in-out opacity-100">
 
-            <div class="grid md:grid-cols-2 gap-4">
-              <select name="clientes" class="input p-2 rounded-lg">
-                <option class="p-2 rounded-lg">¿Contacto con clientes?</option>
-                <option>Sí</option>
-                <option>No</option>
-              </select>
+                        <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                            <h2 class="text-2xl font-bold mb-3 text-white">
+                                Búsqueda y selección de personal
+                            </h2>
+                            <p class="text-gray-400">
+                                Encontramos el talento ideal para tu empresa a través de un proceso ágil y
+                                personalizado.
+                                Nos encargamos de la publicación de vacantes, filtrado de candidatos y entrevistas
+                                iniciales.
+                            </p>
+                        </div>
 
-              <select name="responsabilidad" class="input">
-                <option class="p-2 rounded-lg">¿Manejabas dinero o responsabilidades?</option>
-                <option>Sí</option>
-                <option>No</option>
-              </select>
+                        <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                            <h2 class="text-2xl font-bold mb-3 text-white">
+                                Evaluación de perfiles
+                            </h2>
+                            <p class="text-gray-400">
+                                Analizamos en profundidad a los candidatos para asegurar que cumplan con los requisitos
+                                del puesto
+                                y se adapten a la cultura de tu empresa.
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                            <h2 class="text-2xl font-bold mb-3 text-white">
+                                Reclutamiento completo
+                            </h2>
+                            <p class="text-gray-400">
+                                Nos encargamos de todo el proceso de selección: desde la búsqueda hasta la evaluación
+                                final,
+                                garantizando perfiles alineados a tus necesidades.
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                            <h2 class="text-2xl font-bold mb-3 text-white">
+                                Asesoramiento en RRHH
+                            </h2>
+                            <p class="text-gray-400">
+                                Te acompañamos en la toma de decisiones estratégicas relacionadas con recursos humanos,
+                                ayudándote a optimizar la gestión de tu equipo.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Bloque principal Candidatos -->
+                <div id="bloqueCandidato" class="hidden grid md:grid-cols-2 gap-10 mb-16 transition-all duration-500 ease-in-out opacity-100">
+
+                    <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                        <h2 class="text-2xl font-bold mb-3 text-white">
+                            Armado de CV Profesional
+                        </h2>
+                        <p class="text-gray-400">
+                            Creamos CV claros, organizados y adaptados al perfil de cada persona, destacando sus
+                            habilidades y
+                            experiencia para aumentar sus oportunidades laborales.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                        <h2 class="text-2xl font-bold mb-3 text-white">
+                            Preparación para entrevistas
+                        </h2>
+                        <p class="text-gray-400">
+                            Te ayudamos a prepararte para entrevistas laborales, brindándote herramientas y respuestas
+                            clave para que
+                            puedas desenvolverte con seguridad.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                        <h2 class="text-2xl font-bold mb-3 text-white">
+                            Optimización de perfil laboral
+                        </h2>
+                        <p class="text-gray-400">
+                            Analizamos tu perfil y te guiamos para mejorar tu presentación profesional, tanto en CV como
+                            en
+                            plataformas como LinkedIn.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900/70 p-6 rounded-xl shadow">
+                        <h2 class="text-2xl font-bold mb-3 text-white">
+                            Asesoramiento Personalizado
+                        </h2>
+                        <p class="text-gray-400">
+                            Acompañamiento individual para ayudarte a entender el mercado laboral y mejorar tus
+                            oportunidades de
+                            conseguir trabajo.
+                        </p>
+                    </div>
+
+                </div>
             </div>
-          </div>
+
+
         </div>
+    </main>
 
-        <!-- 4. EDUCACIÓN -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">🎓 Educación</h3>
+    <!-- MODAL EMPRESAS -->
+    <div id="modalEmpresa"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
 
-          <div class="grid md:grid-cols-2 gap-4">
-            <input name="nivel_estudios" placeholder="Nivel de estudios" class="input p-2 rounded-lg" />
-            <input name="institucion" placeholder="Institución" class="input p-2 rounded-lg" />
+        <div class="bg-gray-900 w-full max-w-lg rounded-xl shadow-lg relative p-8 text-center">
 
-            <select name="finalizado" class="input p-2 rounded-lg md:col-span-2">
-              <option class="p-2 rounded-lg">¿Finalizado?</option>
-              <option>Sí</option>
-              <option>No</option>
-            </select>
-          </div>
+            <!-- Botón cerrar -->
+            <button id="closeModalEmpresa" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                ✕
+            </button>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                Potenciá tu equipo de trabajo
+            </h2>
+
+            <p class="text-gray-400 mb-6">
+                En OVO Recursos Humanos te ayudamos a encontrar el talento ideal para tu empresa.
+                Nos encargamos de la búsqueda, selección y evaluación de perfiles alineados a tus necesidades,
+                optimizando tu tiempo y mejorando la calidad de tus contrataciones.
+            </p>
+
+            <button id="btnEmpezarEmpresa"
+                class="bg-green-700/50 hover:bg-green-800/50 text-white px-6 py-3 rounded-lg font-semibold transition">
+                Solicitar servicio
+            </button>
+
         </div>
-
-        <!-- 5. HABILIDADES -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">🧠 Habilidades</h3>
-
-          <textarea name="habilidades" placeholder="Tus habilidades principales"
-            class="input p-2 rounded-lg"></textarea>
-          <textarea name="fortalezas" placeholder="¿Qué hacés mejor en un trabajo?"
-            class="input mt-4 p-2 rounded-lg"></textarea>
-        </div>
-
-        <!-- 6. PERFIL -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">💬 Perfil personal</h3>
-
-          <textarea name="perfil" placeholder="¿Cómo te describirías?" class="input"></textarea>
-          <textarea name="contratacion" placeholder="¿Por qué deberían contratarte?" class="input mt-4"></textarea>
-        </div>
-
-        <!-- 7. SITUACIONES -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">🧩 Situaciones laborales</h3>
-
-          <textarea name="problemas" placeholder="¿Cómo reaccionás ante problemas?" class="input"></textarea>
-          <textarea name="equipo" placeholder="Contá una experiencia en equipo" class="input mt-4"></textarea>
-        </div>
-
-        <!-- 8. HERRAMIENTAS -->
-        <div class="bg-gray-900/70 p-6 rounded-xl">
-          <h3 class="text-xl font-semibold mb-4 text-white">💻 Herramientas</h3>
-
-          <div class="space-y-4">
-            <select name="pc" class="input p-2 rounded-lg">
-              <option>¿Sabés usar computadora?</option>
-              <option>Sí</option>
-              <option>No</option>
-            </select>
-
-            <input name="programas" placeholder="Programas que manejás (Excel, Word, etc.)"
-              class="input p-2 rounded-lg" />
-            <input name="no_trabajo" placeholder="¿Qué trabajo NO te gustaría hacer?" class="input p-2 rounded-lg" />
-            <input name="disponibilidad" placeholder="Disponibilidad horaria" class="input p-2 rounded-lg" />
-            <input name="inicio" placeholder="¿Cuándo podrías empezar?" class="input p-2 rounded-lg" />
-          </div>
-        </div>
-
-        <!-- Botón -->
-        <div class="flex justify-center gap-3 text-center pb-6">
-          <button id="btn-pdf" type="button"
-            class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold transition">
-            Descargar PDF
-          </button>
-          <button id="btn-postulacion" type="submit"
-            class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition">
-            Enviar postulación
-          </button>
-        </div>
-
-      </form>
-    </div>
-  </div>
-
-  <footer class="bg-gray-900/90 text-gray-300 mt-10 w-full">
-    <div class="mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Marca -->
-      <div>
-        <h2 class="text-xl font-bold text-white mb-2">OVO Gestión Humana</h2>
-        <p class="text-sm">
-          Plataforma simple para gestionar candidatos, entrevistas y contrataciones.
-        </p>
-      </div>
-
-      <!-- Links -->
-      <div>
-        <h3 class="text-white font-semibold mb-2">Secciones</h3>
-        <ul class="space-y-1 text-sm">
-          <li><a href="#inicio" class="hover:text-white">Inicio</a></li>
-          <li><a href="#soluciones" class="hover:text-white transition">Soluciones</a></li>
-          <li><a href="#crear-cv" class="hover:text-white transition">Nosotros</a></li>
-          <li><a href="#contacto" class="hover:text-white transition">Contacto</a></li>
-        </ul>
-      </div>
-
-      <!-- Contacto -->
-      <div>
-        <h3 class="text-white font-semibold mb-2">Contacto</h3>
-        <p class="text-sm">oleryoriana@gmail.com</p>
-      </div>
-
     </div>
 
-    <!-- Bottom -->
-    <div class="border-t border-gray-700 text-center text-sm py-4">
-      © 2026 HR App - Todos los derechos reservados
-    </div>
-  </footer>
+    <!-- MODAL CANDIDATO -->
+    <div id="modalPerfil"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="app.js"></script>
+        <div class="bg-gray-900 w-full max-w-lg rounded-xl shadow-lg relative p-8 text-center">
+
+            <!-- Botón cerrar -->
+            <button id="closeModalPerfil" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                ✕
+            </button>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                Impulsa tu perfil laboral
+            </h2>
+
+            <p class="text-gray-400 mb-6">
+                Te ayudamos a mejorar o armar tu CV, prepararte para entrevistas y aumentar tus oportunidades de
+                conseguir trabajo.
+                Además, podés descargar tu CV en formato PDF de manera gratuita, listo para postularte a diferentes
+                empleos.
+            </p>
+            
+            <button id="openModal"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition">
+                Empezar ahora
+            </button>
+
+        </div>
+    </div>
+
+    <div id="contacto" class="h-12"></div>
+    <section class="bg-gray-900/90 p-8 max-w-4xl mx-auto rounded-lg text-gray-900">
+        <h3 class="text-2xl text-center font-semibold py-8 text-gray-50">Enviame un Email</h3>
+        <form id="contactForm" class="flex flex-col gap-4 max-w-2xl mx-auto">
+            <input id="nombre" placeholder="Nombre" class="input p-2 rounded-lg " />
+            <input id="email" placeholder="Email" class="input p-2 rounded-lg" />
+            <textarea id="mensaje" placeholder="Mensaje" class="input p-2 rounded-lg"></textarea>
+
+            <button type="submit" class="bg-blue-500 text-white text-center p-2 w-24 m-auto rounded-lg">
+                Enviar
+            </button>
+        </form>
+    </section>
+
+    <!--        -------------------------  MODAL -----------------------------------        -->
+
+    <div id="modal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm text-gray-900 hidden items-center justify-center z-50 p-4">
+
+        <!-- Contenedor -->
+        <div class="bg-gray-900 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
+
+            <!-- Botón cerrar -->
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                ✕
+            </button>
+
+            <h2 class="text-3xl font-bold text-center mb-10 text-white">
+                Postulación laboral
+            </h2>
+
+            <form id="formPostulacion" class="space-y-10">
+
+                <!-- 1. DATOS PERSONALES -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">👤 Datos personales</h3>
+
+                    <div class="flex flex-col items-center mb-6">
+
+                        <!-- Preview -->
+                        <div class="w-32 h-32 rounded-lg overflow-hidden border border-gray-600 mb-3">
+                            <img id="previewFoto" src="https://via.placeholder.com/150"
+                                class="w-full h-full object-cover" />
+                        </div>
+
+                        <!-- Input -->
+                        <input type="file" id="foto" accept="image/*" class="text-sm text-gray-300" />
+
+                        <p class="text-xs text-gray-400 mt-1">Foto 4x4 (opcional)</p>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input name="nombre" placeholder="Nombre completo" class="input p-2 rounded-lg" />
+                        <input name="edad" placeholder="Edad (opcional)" class="input p-2 rounded-lg" />
+                        <input name="telefono" placeholder="Teléfono" class="input p-2 rounded-lg" />
+                        <input name="email" placeholder="Email" class="input p-2 rounded-lg" />
+                        <input name="ciudad" placeholder="Ciudad / Zona" class="input p-2 rounded-lg" />
+
+                        <select name="viajar" class="input grid md:grid-cols-2 gap-4">
+                            <option class="p-2 rounded-lg">¿Disponibilidad para viajar?</option>
+                            <option>Sí</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 2. OBJETIVO -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">🎯 Objetivo laboral</h3>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input name="area" placeholder="Área en la que querés trabajar" class="input p-2 rounded-lg" />
+
+                        <select name="motivacion" class="input grid-cols-2 gap-4">
+                            <option class="p-2 rounded-lg">Tipo de trabajo</option>
+                            <option class="p-2 rounded-lg">Full time</option>
+                            <option class="p-2 rounded-lg">Part time</option>
+                            <option class="p-2 rounded-lg">Remoto</option>
+                        </select>
+
+                        <textarea name="interes" placeholder="¿Por qué te interesa ese trabajo?"
+                            class="input p-2 rounded-lg"></textarea>
+                    </div>
+                </div>
+
+                <!-- 3. EXPERIENCIA -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">💼 Experiencia laboral</h3>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input name="empresa" placeholder="Empresa" class="input p-2 rounded-lg" />
+                        <input name="puestos" placeholder="Puesto" class="input p-2 rounded-lg" />
+                        <input name="fechas" placeholder="Fecha desde - hasta" class="input p-2 rounded-lg" />
+                        <textarea name="tareas" placeholder="Tareas realizadas" class="input p-2 rounded-lg"></textarea>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <select name="clientes" class="input p-2 rounded-lg">
+                                <option class="p-2 rounded-lg">¿Contacto con clientes?</option>
+                                <option>Sí</option>
+                                <option>No</option>
+                            </select>
+
+                            <select name="responsabilidad" class="input">
+                                <option class="p-2 rounded-lg">¿Manejabas dinero o responsabilidades?</option>
+                                <option>Sí</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. EDUCACIÓN -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">🎓 Educación</h3>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input name="nivel_estudios" placeholder="Nivel de estudios" class="input p-2 rounded-lg" />
+                        <input name="institucion" placeholder="Institución" class="input p-2 rounded-lg" />
+
+                        <select name="finalizado" class="input p-2 rounded-lg md:col-span-2">
+                            <option class="p-2 rounded-lg">¿Finalizado?</option>
+                            <option>Sí</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 5. HABILIDADES -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">🧠 Habilidades</h3>
+
+                    <textarea name="habilidades" placeholder="Tus habilidades principales"
+                        class="input p-2 rounded-lg"></textarea>
+                    <textarea name="fortalezas" placeholder="¿Qué hacés mejor en un trabajo?"
+                        class="input mt-4 p-2 rounded-lg"></textarea>
+                </div>
+
+                <!-- 6. PERFIL -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">💬 Perfil personal</h3>
+
+                    <textarea name="perfil" placeholder="¿Cómo te describirías?" class="input"></textarea>
+                    <textarea name="contratacion" placeholder="¿Por qué deberían contratarte?"
+                        class="input mt-4"></textarea>
+                </div>
+
+                <!-- 7. SITUACIONES -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">🧩 Situaciones laborales</h3>
+
+                    <textarea name="problemas" placeholder="¿Cómo reaccionás ante problemas?" class="input"></textarea>
+                    <textarea name="equipo" placeholder="Contá una experiencia en equipo" class="input mt-4"></textarea>
+                </div>
+
+                <!-- 8. HERRAMIENTAS -->
+                <div class="bg-gray-900/70 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">💻 Herramientas</h3>
+
+                    <div class="space-y-4">
+                        <select name="pc" class="input p-2 rounded-lg">
+                            <option>¿Sabés usar computadora?</option>
+                            <option>Sí</option>
+                            <option>No</option>
+                        </select>
+
+                        <input name="programas" placeholder="Programas que manejás (Excel, Word, etc.)"
+                            class="input p-2 rounded-lg" />
+                        <input name="no_trabajo" placeholder="¿Qué trabajo NO te gustaría hacer?"
+                            class="input p-2 rounded-lg" />
+                        <input name="disponibilidad" placeholder="Disponibilidad horaria"
+                            class="input p-2 rounded-lg" />
+                        <input name="inicio" placeholder="¿Cuándo podrías empezar?" class="input p-2 rounded-lg" />
+                    </div>
+                </div>
+
+                <!-- Botón -->
+                <div class="flex justify-center gap-3 text-center pb-6">
+                    <button id="btn-pdf" type="button"
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold transition">
+                        Descargar PDF
+                    </button>
+                    <button id="btn-postulacion" type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition">
+                        Enviar postulación
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900/90 text-gray-300 mt-10 w-full">
+        <div class="mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Marca -->
+            <div>
+                <h2 class="text-xl font-bold text-white mb-2">OVO Gestión Humana</h2>
+                <p class="text-sm">
+                    Plataforma simple para gestionar candidatos, entrevistas y contrataciones.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h3 class="text-white font-semibold mb-2">Secciones</h3>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#inicio" class="hover:text-white">Inicio</a></li>
+                    <li><a href="#candidatos" class="hover:text-white transition">Servicios</a></li>
+                    <li><a href="#contacto" class="hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Contacto -->
+            <div>
+                <h3 class="text-white font-semibold mb-2">Contacto</h3>
+                <p class="text-sm">oleryoriana@gmail.com</p>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="border-t border-gray-700 text-center text-sm py-4">
+            © 2026 OVO Gestión Humana - Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
